@@ -14,6 +14,14 @@
 		6DF683B42C5817FC00BDDF8D /* FetchProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683B32C5817FC00BDDF8D /* FetchProjectTests.swift */; };
 		6DF683BE2C5817FC00BDDF8D /* FetchProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683BD2C5817FC00BDDF8D /* FetchProjectUITests.swift */; };
 		6DF683C02C5817FC00BDDF8D /* FetchProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683BF2C5817FC00BDDF8D /* FetchProjectUITestsLaunchTests.swift */; };
+		6DF683D12C58194D00BDDF8D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683D02C58194D00BDDF8D /* ApiClient.swift */; };
+		6DF683D42C581BCA00BDDF8D /* DesertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683D32C581BCA00BDDF8D /* DesertModel.swift */; };
+		6DF683D62C581CC100BDDF8D /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683D52C581CC100BDDF8D /* MealViewModel.swift */; };
+		6DF683D82C5826C300BDDF8D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683D72C5826C300BDDF8D /* String+Extension.swift */; };
+		6DF683DA2C582B6C00BDDF8D /* DesertDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683D92C582B6C00BDDF8D /* DesertDetailModel.swift */; };
+		6DF683DC2C582C7900BDDF8D /* MealRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683DB2C582C7900BDDF8D /* MealRowView.swift */; };
+		6DF683DE2C58339F00BDDF8D /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683DD2C58339F00BDDF8D /* MealDetailView.swift */; };
+		6DF683E02C58370C00BDDF8D /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF683DF2C58370C00BDDF8D /* MealDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		6DF683B92C5817FC00BDDF8D /* FetchProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF683BD2C5817FC00BDDF8D /* FetchProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProjectUITests.swift; sourceTree = "<group>"; };
 		6DF683BF2C5817FC00BDDF8D /* FetchProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6DF683D02C58194D00BDDF8D /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		6DF683D32C581BCA00BDDF8D /* DesertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesertModel.swift; sourceTree = "<group>"; };
+		6DF683D52C581CC100BDDF8D /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
+		6DF683D72C5826C300BDDF8D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		6DF683D92C582B6C00BDDF8D /* DesertDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesertDetailModel.swift; sourceTree = "<group>"; };
+		6DF683DB2C582C7900BDDF8D /* MealRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRowView.swift; sourceTree = "<group>"; };
+		6DF683DD2C58339F00BDDF8D /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
+		6DF683DF2C58370C00BDDF8D /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +110,12 @@
 		6DF683A12C5817FB00BDDF8D /* FetchProject */ = {
 			isa = PBXGroup;
 			children = (
+				6DF683D22C58195500BDDF8D /* Extension */,
+				6DF683CF2C58194200BDDF8D /* Client */,
+				6DF683CE2C58193900BDDF8D /* ViewModel */,
+				6DF683CD2C58193500BDDF8D /* View */,
+				6DF683CC2C58192D00BDDF8D /* Model */,
 				6DF683A22C5817FB00BDDF8D /* FetchProjectApp.swift */,
-				6DF683A42C5817FB00BDDF8D /* ContentView.swift */,
 				6DF683A62C5817FB00BDDF8D /* Assets.xcassets */,
 				6DF683A82C5817FB00BDDF8D /* Preview Content */,
 			);
@@ -125,6 +145,50 @@
 				6DF683BF2C5817FC00BDDF8D /* FetchProjectUITestsLaunchTests.swift */,
 			);
 			path = FetchProjectUITests;
+			sourceTree = "<group>";
+		};
+		6DF683CC2C58192D00BDDF8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6DF683D32C581BCA00BDDF8D /* DesertModel.swift */,
+				6DF683D92C582B6C00BDDF8D /* DesertDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6DF683CD2C58193500BDDF8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6DF683A42C5817FB00BDDF8D /* ContentView.swift */,
+				6DF683DB2C582C7900BDDF8D /* MealRowView.swift */,
+				6DF683DD2C58339F00BDDF8D /* MealDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6DF683CE2C58193900BDDF8D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6DF683D52C581CC100BDDF8D /* MealViewModel.swift */,
+				6DF683DF2C58370C00BDDF8D /* MealDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6DF683CF2C58194200BDDF8D /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				6DF683D02C58194D00BDDF8D /* ApiClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		6DF683D22C58195500BDDF8D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6DF683D72C5826C300BDDF8D /* String+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +321,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DF683DE2C58339F00BDDF8D /* MealDetailView.swift in Sources */,
+				6DF683D42C581BCA00BDDF8D /* DesertModel.swift in Sources */,
+				6DF683D62C581CC100BDDF8D /* MealViewModel.swift in Sources */,
 				6DF683A52C5817FB00BDDF8D /* ContentView.swift in Sources */,
+				6DF683DA2C582B6C00BDDF8D /* DesertDetailModel.swift in Sources */,
 				6DF683A32C5817FB00BDDF8D /* FetchProjectApp.swift in Sources */,
+				6DF683D82C5826C300BDDF8D /* String+Extension.swift in Sources */,
+				6DF683DC2C582C7900BDDF8D /* MealRowView.swift in Sources */,
+				6DF683E02C58370C00BDDF8D /* MealDetailViewModel.swift in Sources */,
+				6DF683D12C58194D00BDDF8D /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
