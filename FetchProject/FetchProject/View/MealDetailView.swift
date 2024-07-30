@@ -12,24 +12,32 @@ struct MealDetailView: View {
     let meal: Meal
     
     @ObservedObject var mealDetailViewModel: MealDetailViewModel = MealDetailViewModel()
+    
+    @StateObject private var imageLoader = ImageLoader()
+
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                AsyncImage(url: meal.strMealThumb) { image in
-                    image.resizable()
-                         .scaledToFill()
-                         .frame(maxHeight: 300)
-                         .clipped()
-                } placeholder: {
-                    ProgressView()
+                
+                Group {
+                    if let uiImage = imageLoader.image {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                    } else {
+                        ProgressView()
+                    }
+                }
+                .onAppear {
+                    imageLoader.loadImage(from: meal.MealThumb)
                 }
 
-                Text(mealDetailViewModel.mealDetail?.name ?? "xx")
+                Text(mealDetailViewModel.mealDetail?.name ?? "")
                     .font(.largeTitle)
                     .padding(.top)
 
-                Text(mealDetailViewModel.mealDetail?.category ?? "xx")
+                Text(mealDetailViewModel.mealDetail?.category ?? "")
                     .font(.title2)
                     .foregroundColor(.secondary)
 
@@ -63,9 +71,9 @@ struct MealDetailView: View {
             .padding()
         }
         .task {
-            await mealDetailViewModel.loadDataWithMealIde(self.meal.idMeal)
+            await mealDetailViewModel.loadDataWithMealIde(self.meal.mealId)
         }
-        .navigationTitle(meal.strMeal)
+        .navigationTitle(meal.mealName)
         .navigationBarTitleDisplayMode(.inline)
     }
         

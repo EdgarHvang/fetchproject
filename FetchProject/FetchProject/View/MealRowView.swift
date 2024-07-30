@@ -10,21 +10,29 @@ import SwiftUI
 
 struct MealRowView: View {
     let meal: Meal
+    
+    @StateObject private var imageLoader = ImageLoader()
 
     var body: some View {
         HStack {
-            AsyncImage(url: meal.strMealThumb) { image in
-                image.resizable()
-                     .scaledToFill()
-                     .frame(width: 50, height: 50)
-                     .clipped()
-            } placeholder: {
-                ProgressView()
+            Group {
+                if let uiImage = imageLoader.image {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60,height: 60 )
+                } else {
+                    ProgressView()
+                }
             }
+            .onAppear {
+                imageLoader.loadImage(from: meal.MealThumb)
+            }
+            
             VStack(alignment: .leading) {
                 Text(meal.id)
                     .font(.headline)
-                Text(meal.strMeal)
+                Text(meal.mealName)
                     .font(.subheadline)
             }
         }

@@ -18,7 +18,12 @@ enum NetworkError: Error {
     case doesNotExist
 }
 
-class ApiClient {
+protocol ApiClientProtocol {
+    func fetchMealData() async throws -> [Meal]
+    func fetchMealDetails(_ mealID: String) async throws -> MealDetail
+}
+
+class ApiClient: ApiClientProtocol {
    
     static let shared = ApiClient()
     
@@ -36,7 +41,7 @@ class ApiClient {
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw NetworkError.requestFailed
         }
-        let mealsResponse = try? JSONDecoder().decode(DesertReponse.self, from: data)
+        let mealsResponse = try? JSONDecoder().decode(DesertResponse.self, from: data)
         return mealsResponse?.meals ?? []
     }
     
@@ -51,7 +56,7 @@ class ApiClient {
             throw NetworkError.requestFailed
         }
         let MealDetailResponse = try? JSONDecoder().decode(MealDetailResponse.self, from: data)
-        guard let mealDetail = MealDetailResponse?.meals[0] as? MealDetail else {
+        guard let mealDetail = MealDetailResponse?.meals.first as? MealDetail else {
             throw NetworkError.doesNotExist
         }
 //        print(mealDetail)

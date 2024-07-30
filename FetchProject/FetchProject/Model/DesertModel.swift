@@ -7,18 +7,24 @@
 
 import Foundation
 
-struct DesertReponse: Decodable {
+struct DesertResponse: Decodable {
     let meals: [Meal]
     
 }
 
 struct Meal: Decodable, Identifiable {
-    let strMeal: String
-    let strMealThumb: URL
-    let idMeal: String
+    let mealName: String
+    let MealThumb: URL
+    let mealId: String
     
     var id: String {
-        return idMeal
+        return mealId
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case mealName = "strMeal"
+        case MealThumb = "strMealThumb"
+        case mealId = "idMeal"
     }
 }
 
